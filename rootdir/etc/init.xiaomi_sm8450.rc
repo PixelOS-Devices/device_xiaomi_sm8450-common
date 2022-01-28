@@ -179,6 +179,9 @@ on property:vendor.post_boot.parsed=1
     # Setup foreground cpuset for display composer.
     write /dev/cpuset/foreground/cpus 0-6
 
+    # Setup audio-app cpuset
+    write /dev/cpuset/audio-app/cpus 1-2
+
     # Setup dex2oat thread count and cpuset
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
     setprop dalvik.vm.dex2oat-threads 6
