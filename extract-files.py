@@ -75,6 +75,13 @@ blob_fixups: blob_fixups_user_type = {
             'android.media.audio.common.types-V3-cpp.so',
         ),
     (
+        'vendor/etc/msm_irqbalance.conf'
+    ): blob_fixup()
+        .regex_replace(
+            'IGNORED_IRQ=27,23,38$',
+            '&,115,332'
+        ),
+    (
         'vendor/bin/hw/android.hardware.security.keymint-service-qti',
         'vendor/lib64/libqtikeymint.so',
     ): blob_fixup()
