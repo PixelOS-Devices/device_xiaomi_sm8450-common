@@ -141,6 +141,7 @@ debug.sf.early.app.duration=13666666
 debug.sf.early.sf.duration=15666666
 debug.sf.earlyGl.app.duration=13666666
 debug.sf.earlyGl.sf.duration=15666666
+debug.sf.enable_adpf_cpu_hint=true
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=0
@@ -170,6 +171,9 @@ ro.surface_flinger.use_color_management=true
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 vendor.gralloc.disable_ubwc=0
+
+# HWUI
+debug.hwui.use_hint_manager=true
 
 # Incremental
 ro.incremental.enable=yes
