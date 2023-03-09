@@ -176,6 +176,9 @@ on property:vendor.post_boot.parsed=1
     # Set background cpuset
     write /dev/cpuset/background/cpus 0-1
 
+    # Setup foreground cpuset for display composer.
+    write /dev/cpuset/foreground/cpus 0-6
+
 on property:init.svc.vendor.charger=running
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness
