@@ -22,6 +22,9 @@ type vendor_fingerprint_data_file_fpdump, data_file_type, file_type;
 type qx_oss_vendor_data_file, data_file_type, file_type;
 type vendor_ins_vendor_data_file, data_file_type, file_type;
 
+# Graphics
+type vendor_sysfs_sde_crtc, fs_type, sysfs_type;
+
 # Mac Address
 type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
 

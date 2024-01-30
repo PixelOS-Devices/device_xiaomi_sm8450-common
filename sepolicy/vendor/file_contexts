@@ -72,6 +72,9 @@
 # Modem
 /dev/smd8 u:object_r:vendor_radio_smd_device:s0
 
+# Perfmgr
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr    u:object_r:hal_power_default_exec:s0
+
 # Powershare
 /vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.xiaomi u:object_r:hal_lineage_powershare_default_exec:s0
 
