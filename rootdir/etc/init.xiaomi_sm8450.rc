@@ -173,6 +173,9 @@ on property:vendor.post_boot.parsed=1
     # Set restricted cpuset to the same CPUs as system-background
     copy /dev/cpuset/system-background/cpus /dev/cpuset/restricted/cpus
 
+    # Set background cpuset
+    write /dev/cpuset/background/cpus 0-1
+
 on property:init.svc.vendor.charger=running
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness
