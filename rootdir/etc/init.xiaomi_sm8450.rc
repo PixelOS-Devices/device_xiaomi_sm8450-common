@@ -179,6 +179,10 @@ on property:vendor.post_boot.parsed=1
     # Setup foreground cpuset for display composer.
     write /dev/cpuset/foreground/cpus 0-6
 
+    # Setup dex2oat thread count and cpuset
+    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
+    setprop dalvik.vm.dex2oat-threads 6
+
 on property:init.svc.vendor.charger=running
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness
