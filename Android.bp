@@ -9,5 +9,7 @@ soong_namespace {
         "hardware/qcom-caf/bootctrl",
         "hardware/xiaomi",
         "vendor/qcom/opensource/commonsys-intf/display",
+        "hardware/google/interfaces",
+        "hardware/google/pixel",
     ],
 }
