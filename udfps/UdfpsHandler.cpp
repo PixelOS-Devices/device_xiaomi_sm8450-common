@@ -23,9 +23,6 @@
 #define COMMAND_NIT 10
 #define TARGET_BRIGHTNESS_OFF 0
 #define TARGET_BRIGHTNESS_1000NIT 1
-#define TARGET_BRIGHTNESS_110NIT 6
-
-#define LOW_BRIGHTNESS_THRESHHOLD 100
 
 #define COMMAND_FOD_PRESS_STATUS 1
 #define COMMAND_FOD_PRESS_X 2
@@ -134,27 +131,12 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                 mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
                                 pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
 
-                // Get brightness
-                struct disp_brightness_req brightness_req;
-                int brightness = LOW_BRIGHTNESS_THRESHHOLD;
-                brightness_req.base.flag = 0;
-                brightness_req.base.disp_id = MI_DISP_PRIMARY;
-                rc = ioctl(disp_fd_.get(), MI_DISP_IOCTL_GET_BRIGHTNESS, &brightness_req);
-                if (rc) {
-                    LOG(ERROR) << "failed to get brightness, err: " << rc;
-                } else if (brightness_req.brightness > 0) {
-                    brightness = brightness_req.brightness;
-                }
-                LOG(DEBUG) << "brightness is: " << (int)brightness_req.brightness;
-                bool requestLowBrightness = !enrolling && brightness < LOW_BRIGHTNESS_THRESHHOLD;
-
                 // Request HBM
                 disp_local_hbm_req req;
                 req.base.flag = 0;
                 req.base.disp_id = MI_DISP_PRIMARY;
                 req.local_hbm_value =
-                        pressed ? (requestLowBrightness ? LHBM_TARGET_BRIGHTNESS_WHITE_110NIT
-                                                        : LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT)
+                        pressed ? LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT
                                 : LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
                 ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
             }
@@ -202,13 +184,9 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                 LOG(DEBUG) << "received data: " << std::bitset<8>(value);
 
                 bool localHbmUiReady = value & LOCAL_HBM_UI_READY;
-                bool requestLowBrightnessCapture = value & FOD_LOW_BRIGHTNESS_CAPTURE;
 
                 mDevice->extCmd(mDevice, COMMAND_NIT,
-                                localHbmUiReady
-                                        ? (requestLowBrightnessCapture ? TARGET_BRIGHTNESS_110NIT
-                                                                       : TARGET_BRIGHTNESS_1000NIT)
-                                        : TARGET_BRIGHTNESS_OFF);
+                                localHbmUiReady ? TARGET_BRIGHTNESS_1000NIT : TARGET_BRIGHTNESS_OFF);
             }
         }).detach();
     }
