@@ -244,6 +244,15 @@
       "ResetOnInit": true
     },
     {
+      "Name": "ThermalProfile",
+      "Path": "/sys/devices/virtual/thermal/thermal_message/sconfig",
+      "Values": [
+        "20",
+        "0"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUBWHystTriggerCount",
       "Path": "/sys/devices/system/cpu/bus_dcvs/DDR/19091000.qcom,bwmon-ddr/hyst_trigger_count",
       "Values": [
@@ -520,6 +529,12 @@
       "Node": "SchedBusyHystEnableCPUs",
       "Duration": 0,
       "Value": "15"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "ThermalProfile",
+      "Duration": 0,
+      "Value": "20"
     },
     {
       "PowerHint": "LAUNCH",
