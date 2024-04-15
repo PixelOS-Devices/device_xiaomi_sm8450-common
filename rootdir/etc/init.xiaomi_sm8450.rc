@@ -182,11 +182,6 @@ on property:vendor.post_boot.parsed=1
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
     setprop dalvik.vm.dex2oat-threads 6
 
-    # Override default CPU governor to schedutil
-    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedutil"
-    write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor "schedutil"
-
     # Kill WALT CPU input boost
     write /proc/sys/walt/input_boost/input_boost_freq "0 0 0 0 0 0 0"
     write /proc/sys/walt/input_boost/input_boost_ms 0
