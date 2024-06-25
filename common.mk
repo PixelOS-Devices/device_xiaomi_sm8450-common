@@ -140,10 +140,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.aon@1.0.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor:64
 
-PRODUCT_PACKAGES += \
-    libMegviiFacepp-0.5.2:64 \
-    libmegface:64
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
