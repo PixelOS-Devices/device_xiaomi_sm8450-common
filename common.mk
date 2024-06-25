@@ -288,12 +288,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
+# LZ4
+PRODUCT_PACKAGES += \
+    liblz4.vendor
+
 # Media
 PRODUCT_PACKAGES += \
     libOmxCore \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
-    libstagefrighthw
+    libstagefrighthw \
+    libstagefright_softomx_plugin.vendor
 
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
@@ -500,7 +505,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti
+    android.hardware.usb@1.3-service-qti \
+    libusbhost.vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
