@@ -295,6 +295,9 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_PACKAGES += \
     libOmxCore \
+    android.hardware.media.c2@1.0.vendor \
+    android.hardware.media.c2@1.1.vendor \
+    android.hardware.media.c2@1.2.vendor \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
     libstagefrighthw \
