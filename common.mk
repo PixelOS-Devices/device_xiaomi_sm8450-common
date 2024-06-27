@@ -65,9 +65,12 @@ PRODUCT_PACKAGES += \
     audio.usb.default
 
 PRODUCT_PACKAGES += \
+    libaudioroute.vendor \
+    libprocessgroup.vendor \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libstagefright_softomx_plugin.vendor \
     libvolumelistener
 
 $(foreach sku, taro diwali cape ukee parrot, \
