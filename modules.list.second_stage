@@ -154,7 +154,6 @@ qti_devfreq_cdev.ko
 mi_thermal_interface.ko
 btpower.ko
 bt_fm_slim.ko
-qcom_edac.ko
 qcom-cpufreq-hw-debug.ko
 qcom_lpm.ko
 sdhci-msm.ko
