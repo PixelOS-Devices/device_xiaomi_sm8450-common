@@ -719,7 +719,7 @@ product/framework/uimgbalibrary.jar
 product/framework/uimgbamanagerlibrary.jar
 product/framework/uimservicelibrary.jar
 system_ext/app/ImsRcsService/ImsRcsService.apk
-system_ext/app/QtiTelephony/QtiTelephony.apk|8a61be891343e2c4bb5b21ca8c28c53bea2217cf
+-system_ext/app/QtiTelephony/QtiTelephony.apk|8a61be891343e2c4bb5b21ca8c28c53bea2217cf
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_permissions.xml
@@ -750,7 +750,7 @@ system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/li
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
-system_ext/priv-app/ims/ims.apk|67980ca1ae8004b87e9befee39df9fc7fe371673
+-system_ext/priv-app/ims/ims.apk|67980ca1ae8004b87e9befee39df9fc7fe371673
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/app/IWlanService/IWlanService.apk
 vendor/bin/ATFWD-daemon
@@ -769,7 +769,7 @@ vendor/bin/qtigetprop
 vendor/bin/qtisetprop
 vendor/bin/rmt_storage
 vendor/bin/shsusrd
-vendor/bin/ssgqmigd
+vendor/bin/ssgqmigd64
 vendor/bin/ssgtzd
 vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml

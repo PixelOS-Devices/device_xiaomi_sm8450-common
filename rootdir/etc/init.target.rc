@@ -192,3 +192,18 @@ on early-boot && property:persist.vendor.pcie.boot_option=*
 on property:sys.boot_completed=1
     enable vendor.qvirtmgr
     start  vendor.qvirtmgr
+
+# Include logger service
+service logger /system/bin/logcat -b all -D -f /metadata/boot_log.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+on post-fs-data
+    # Clear existing log and start the service
+    rm /metadata/boot_log.txt
+    start logger
+on property:sys.boot_completed=1
+    # Stop the logger service
+    stop logger

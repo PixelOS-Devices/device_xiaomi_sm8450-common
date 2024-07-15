@@ -53,6 +53,9 @@
 # Sensors
 /(vendor|system/vendor)/bin/nonui-notifier u:object_r:vendor_nonui_notifier_exec:s0
 
+# SSG QMI Gateway Daemon
+/(vendor|system/vendor)/bin/ssgqmigd64		                          u:object_r:vendor_ssgqmigd_exec:s0
+
 # Thermal
 /sys/class/thermal/thermal_zone87/temp u:object_r:sysfs_thermal:s0
 
