@@ -102,8 +102,6 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed(
             'libgrpc++_unsecure.so', 'libgrpc++_unsecure_prebuilt.so'
         ),
-    'vendor/etc/media_codecs_c2_audio.xml': blob_fixup()
-        .regex_replace('.+media_codecs_dolby_audio.+\n', ''),
     (
        'vendor/etc/media_codecs_cape.xml',
        'vendor/etc/media_codecs_diwali_v0.xml',
@@ -119,8 +117,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_line_if_missing('setsockopt: 1'),
     'vendor/etc/seccomp_policy/wfdhdcphalservice.policy': blob_fixup()
         .add_line_if_missing('gettid: 1'),
-    'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
-        .regex_replace('.+dolby.+\n', ''),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip
