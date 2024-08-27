@@ -183,6 +183,8 @@ ro.hardware.keystore_desede=true
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
+ro.mediaserver.64b.enable=true
+debug.stagefright.omx_default_rank=0
 vendor.media.omx=0
 
 # Perf
