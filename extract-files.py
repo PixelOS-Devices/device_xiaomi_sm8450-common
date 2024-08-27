@@ -65,6 +65,12 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    (
+        'vendor/bin/hw/dolbycodec2',
+        'vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service', 
+        'vendor/bin/hw/vendor.dolby.media.c2@1.0-service',     
+    ): blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so'),
     'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
