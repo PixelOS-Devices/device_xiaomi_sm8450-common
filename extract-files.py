@@ -75,6 +75,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    'vendor/lib64/c2.dolby.client.so': blob_fixup()
+        .add_needed('dolbycodec_shim.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed(
             'android.media.audio.common.types-V2-cpp.so',
