@@ -104,6 +104,9 @@ function blob_fixup() {
         *)
             return 1
             ;;
+        vendor/lib64/c2.dolby.client.so)
+            "${PATCHELF}" --add-needed "dolbycodec_shim.so" "${2}"
+            ;;
         vendor/etc/msm_irqbalance.conf)
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
             ;;
