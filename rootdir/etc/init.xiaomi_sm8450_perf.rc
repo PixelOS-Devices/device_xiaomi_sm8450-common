@@ -1,0 +1,72 @@
+#!/vendor/bin/sh
+#
+# Copyright (C) 2025 Paranoid Android
+# SPDX-License-Identifier: Apache-2.0
+#
+
+on init
+    copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
+
+on property:vendor.post_boot.parsed=1
+
+    # Dynamic IRQ configuration
+    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_sm8450_perf.sh
+
+    # Configure CPU input boost
+    write /proc/sys/walt/input_boost/input_boost_freq "1324800 0 0 0 1113600 0 0 0"
+    write /proc/sys/walt/input_boost/powerkey_input_boost_freq "1785600 0 0 0 2169600 0 0 2419200"
+    write /proc/sys/walt/input_boost/powerkey_input_boost_ms 500
+
+    # Uclamp configuration
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+    write /dev/cpuctl/background/cpu.uclamp.max 50
+    write /dev/cpuctl/system-background/cpu.uclamp.max 50
+    write /dev/cpuctl/dex2oat/cpu.uclamp.max 60
+
+    # cpu.shares configuration
+    # Setup cpu.shares to throttle background groups (bg ~ 5% sysbg ~ 5% dex2oat ~2.5%)
+    write /dev/cpuctl/background/cpu.shares 1024
+    write /dev/cpuctl/system-background/cpu.shares 1024
+    write /dev/cpuctl/dex2oat/cpu.shares 512
+    write /dev/cpuctl/system/cpu.shares 20480
+
+    # We only have system and background groups holding tasks and the groups below are empty
+    write /dev/cpuctl/camera-daemon/cpu.shares 20480
+    write /dev/cpuctl/foreground/cpu.shares 20480
+    write /dev/cpuctl/nnapi-hal/cpu.shares 20480
+    write /dev/cpuctl/rt/cpu.shares 20480
+    write /dev/cpuctl/top-app/cpu.shares 20480
+
+    # CPUset configuration
+    # Set restricted cpuset to the same CPUs as system-background
+    copy /dev/cpuset/system-background/cpus /dev/cpuset/restricted/cpus
+
+    # Set background cpuset
+    write /dev/cpuset/background/cpus 0-1
+
+    # Setup foreground cpuset for display composer.
+    write /dev/cpuset/foreground/cpus 0-6
+
+    # Setup dex2oat thread count and cpuset
+    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
+    setprop dalvik.vm.dex2oat-threads 6
+
+on property:sys.boot_completed=1
+
+    # Runtime fs tuning
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sda/queue/iostats 1
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/dm-2/queue/read_ahead_kb 128
+    write /sys/block/dm-3/queue/read_ahead_kb 128
+    write /sys/block/dm-4/queue/read_ahead_kb 128
+    write /sys/block/dm-5/queue/read_ahead_kb 128
+    write /sys/block/dm-6/queue/read_ahead_kb 128
+    write /sys/block/dm-7/queue/read_ahead_kb 128
+    write /sys/block/dm-8/queue/read_ahead_kb 128
+    write /sys/block/dm-9/queue/read_ahead_kb 128
+
+    # Migrate tasks again in case kernel threads are created during boot
+    copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
