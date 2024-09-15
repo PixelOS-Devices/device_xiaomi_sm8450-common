@@ -857,7 +857,6 @@ vendor/bin/mi_thermald
 vendor/bin/thermal-engine-v2
 vendor/etc/init/hw/init.mi_thermald.rc
 vendor/etc/init/init_thermal-engine-v2.rc
-vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
 
 # Time services
