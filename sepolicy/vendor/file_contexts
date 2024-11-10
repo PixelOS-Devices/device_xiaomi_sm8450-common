@@ -47,11 +47,7 @@
 /vendor/bin/hw/android\.hardware\.nfc-service\.nxp u:object_r:hal_nfc_default_exec:s0
 
 # Sensors
-/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/sensor-notifier u:object_r:vendor_sensor_notifier_exec:s0
 
 # Thermal
 /sys/class/thermal/thermal_zone87/temp u:object_r:sysfs_thermal:s0
-
-# Touchscreen
-/dev/xiaomi-touch u:object_r:touchfeature_device:s0
