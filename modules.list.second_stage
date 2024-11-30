@@ -143,7 +143,6 @@ qti-adc-tm.ko
 qti_qmi_sensor_v2.ko
 qti_qmi_cdev.ko
 bcl_soc.ko
-msm_lmh_dcvs.ko
 cpu_voltage_cooling.ko
 policy_engine.ko
 sdpm_clk.ko
