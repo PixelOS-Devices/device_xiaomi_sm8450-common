@@ -6,9 +6,6 @@ mhi.ko
 mhi_dev_uci.ko
 mhi_dev_netdev.ko
 mhi_dev_dtr.ko
-phy-qcom-ufs-qmp-v4-lahaina.ko
-phy-qcom-ufs-qmp-v4-parrot.ko
-phy-qcom-ufs-qmp-v4-anarok.ko
 phy-qcom-ufs-qmp-v3.ko
 phy-qcom-ufs-qmp-14nm.ko
 pinctrl-spmi-gpio.ko
@@ -142,7 +139,6 @@ qti-adc-tm.ko
 qti_qmi_sensor_v2.ko
 qti_qmi_cdev.ko
 bcl_soc.ko
-msm_lmh_dcvs.ko
 cpu_voltage_cooling.ko
 policy_engine.ko
 sdpm_clk.ko
