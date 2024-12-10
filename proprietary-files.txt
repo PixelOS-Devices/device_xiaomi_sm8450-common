@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from diting V816.0.8.0.ULFMIXM
+# All unpinned blobs below are extracted from diting V816.0.9.0.ULFMIXM
 
 # Current blobs with ELF checks disabled:
 # libcne, libmasc, lowi-server, qms depend on libwpa_client, which is a gnu makefile target
