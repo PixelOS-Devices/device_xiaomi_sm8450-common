@@ -234,3 +234,5 @@ snd_event_dlkm.ko
 q6_notifier_dlkm.ko
 q6_pdr_dlkm.ko
 adsp_loader_dlkm.ko
+fan53555.ko
+stmvl53l5.ko
