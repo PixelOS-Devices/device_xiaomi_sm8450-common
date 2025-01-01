@@ -174,7 +174,6 @@ ro.hardware.keystore_desede=true
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
-vendor.media.omx=0
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
