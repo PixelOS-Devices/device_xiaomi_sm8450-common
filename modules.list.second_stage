@@ -91,6 +91,7 @@ zram.ko
 hdcp.ko
 qseecom-mod.ko
 wl2866d.ko
+wl2866d_ldo.ko
 qcom-i2c-pmic.ko
 sg.ko
 spi-msm-geni.ko
