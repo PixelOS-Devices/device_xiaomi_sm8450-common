@@ -265,7 +265,6 @@ PRODUCT_PACKAGES += \
     FrameworksResCommon \
     SettingsResCommon \
     SystemUIResCommon \
-    TelecommResCommon \
     TelephonyResCommon \
     WifiResCommon
 
